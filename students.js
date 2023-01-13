@@ -31,6 +31,7 @@ exports.students = async (req, res) => {
                     +'"first_name": "abc",'
                     +'"last_name": "abc",'
                     +'"class": "abc",'
+                    +'"imageURL": "abc.png",'
                     +'"is_active": 1}');
       }
 };
