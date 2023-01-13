@@ -1,14 +1,17 @@
-const express = require("express");
+const express       = require('express')
+const app           = express()
+const bodyParser    = require('body-parser')
 
-const app = express();
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get("/", (req, res) => {
-  res.send("Express on Vercel");
-});
+const { students,studentsList } = require('./students')
 
-app.listen(5000, () => {
-  console.log("Running on port 5000.");
-});
+app.get('/students', studentsList)
 
-// Export the Express API
-module.exports = app;
+app.post('/students/create', students)
+
+
+app.listen(3000, () => {
+    console.log("running on port 3000")
+})
